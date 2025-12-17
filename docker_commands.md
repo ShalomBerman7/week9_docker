@@ -1,0 +1,46 @@
+# Docker Commands
+
+Fill in the Docker commands you used to complete the test.
+
+## Volume
+
+### Create the volume
+
+```bash
+docker volume create fastapi-db
+```
+
+### Seed the volume (via Docker Desktop)
+
+```bash
+#עשיתי import
+```
+
+## Server 1
+
+### Build the image
+
+```bash
+docker build -t shopping-server1:v1 .
+```
+
+### Run the container
+
+```bash
+
+```
+
+## Server 2
+
+### Build the image
+
+```bash
+
+```
+
+### Run the container
+
+```bash
+
+```
+

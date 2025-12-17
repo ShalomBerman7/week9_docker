@@ -10,7 +10,6 @@ path = Path('db/shopping_list.json')
 
 
 class Item(BaseModel):
-    id: int
     name: str
     quantity: int
 
@@ -19,8 +18,10 @@ def load_database() -> Dict:
     try:
         with open(path, "r") as f:
             return json.load(f)
-    except json.JSONDecodeError:
-        raise ValueError("Database file is not valid JSON.")
+    except:
+        with open(path, "w") as f:
+            f.write('[]')
+        return []
 
 
 def save_database(data: Dict) -> None:
@@ -37,8 +38,8 @@ async def list_items():
 @app.post("/items")
 async def create_item(item: Item):
     data = load_database()
-    print(data)
-    items = {'id': item.id, 'name': item.name, 'quantity': item.quantity}
+    id = len(data) + 1
+    items = {'id': id, 'name': item.name, 'quantity': item.quantity}
     data.append(items)
     save_database(data)
     return f'data updated {data[-1]}'
