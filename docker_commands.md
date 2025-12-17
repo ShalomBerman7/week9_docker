@@ -35,7 +35,7 @@ docker build -t shopping-server1:v1 .
 ### Build the image
 
 ```bash
-
+docker build -t shopping-server2:v1 .
 ```
 
 ### Run the container
